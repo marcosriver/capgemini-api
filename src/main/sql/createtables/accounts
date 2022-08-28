@@ -1,0 +1,12 @@
+CREATE TABLE `account` (
+	`account_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`user_id` INT(10) UNSIGNED NOT NULL,
+	`amount` FLOAT NULL DEFAULT NULL,
+	PRIMARY KEY (`account_id`),
+	INDEX `FK_UserAccount` (`user_id`),
+	CONSTRAINT `FK_UserAccount` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE ON DELETE RESTRICT
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1
+;
