@@ -11,9 +11,8 @@ import javax.persistence.*;
 @Entity(name="transaction")
 public class Transaction {
 
-    @JsonIgnore
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int transactionId;
 
     @JsonBackReference

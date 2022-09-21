@@ -4,17 +4,17 @@ package com.mriverola.jpa.entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import javax.validation.constraints.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity(name="account")
 public class Account {
 
-    @JsonIgnore
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int accountId;
 
     @NotNull
@@ -23,7 +23,6 @@ public class Account {
     @JoinColumn(name="user_id")
     private User user;
 
-    @NotNull
     private double amount;
 
     @JsonManagedReference
