@@ -1,0 +1,19 @@
+server:
+  port: 5000
+
+spring:
+  datasource:
+    url: @databaseUrl@
+    username: @username@
+    password: @password@
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  profiles:
+    active: @activeProfile@
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        ddl-auto: update
+
+    show-sql: true
